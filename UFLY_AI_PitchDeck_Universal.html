@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UFLY AI — Investor Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg2:#111827;--bg3:#1e2640;--accent:#e63946;--accent2:#ff6b6b;--glow:rgba(230,57,70,.2);--cyan:#06d6a0;--blue:#4361ee;--gold:#f59e0b;--white:#f1f5f9;--muted:#94a3b8;--glass:rgba(255,255,255,.04);--border:rgba(255,255,255,.08);--font:'Inter','Space Grotesk',system-ui,sans-serif}
+html{font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased}
+.slide{width:100%;min-height:100vh;padding:56px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+@media print{body{background:var(--bg)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.slide{min-height:100vh;padding:36px 52px}}
+h1{font-size:3.4rem;font-weight:900;letter-spacing:-1.5px;line-height:1.08}
+h2{font-size:2.4rem;font-weight:800;letter-spacing:-1px;line-height:1.12}
+h3{font-size:1.4rem;font-weight:700;letter-spacing:-.3px}
+h4{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent2)}
+p,li{font-size:1rem;color:var(--muted)}
+.big{font-size:3.2rem;font-weight:900;line-height:1}
+.accent{color:var(--accent2)}.green{color:var(--cyan)}.blue{color:var(--blue)}.gold{color:var(--gold)}.w{color:var(--white)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:16px 16px 0 0}
+.card-s{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:20px}
+.pill{display:inline-block;padding:6px 16px;border-radius:100px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;background:var(--glow);color:var(--accent2);border:1px solid rgba(230,57,70,.25);margin-bottom:16px}
+.bar-top{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--blue))}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+.sh .logo{font-size:.95rem;font-weight:800;letter-spacing:.5px;color:rgba(255,255,255,.25)}
+.divider{width:56px;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:16px 0}
+.stat-row{display:flex;gap:40px;margin-top:28px}
+.stat-item h3{font-size:2rem;font-weight:900}
+.stat-item p{font-size:.8rem;color:var(--muted);margin-top:2px}
+ul{list-style:none;padding:0}
+ul li{position:relative;padding-left:22px;margin-bottom:10px}
+ul li::before{content:'▸';position:absolute;left:0;color:var(--accent2);font-weight:700}
+.bg-orb{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(140px);opacity:.1;pointer-events:none;z-index:0}
+.slide>*:not(.bg-orb):not(.bar-top){position:relative;z-index:1}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th{text-align:left;padding:10px 14px;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent2);border-bottom:1px solid rgba(255,255,255,.1)}
+td{padding:10px 14px;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
+.check{color:var(--cyan);font-weight:700}.cross{color:var(--accent);font-weight:700}
+.fund-bar{display:flex;border-radius:12px;overflow:hidden;height:36px;margin:20px 0 14px}
+.fund-bar div{display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),var(--cyan))}
+.tl-item{margin-bottom:18px;position:relative}
+.tl-item::before{content:'';position:absolute;left:-25px;top:5px;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent2);background:var(--bg)}
+.tl-item.done::before{background:var(--cyan);border-color:var(--cyan)}
+.tl-item.now::before{background:var(--accent);border-color:var(--accent2);box-shadow:0 0 12px var(--glow)}
+.tl-item h3{font-size:.95rem;font-weight:600;margin-bottom:2px}
+.tl-item p{font-size:.82rem}
+.bar-w{margin-top:8px}.bar-l{font-size:.82rem;color:var(--muted);margin-bottom:3px;display:flex;justify-content:space-between}
+.bar-t{height:12px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
+.bar-f{height:100%;border-radius:6px}
+.bar-truck{background:linear-gradient(90deg,#ef4444,#f97316)}
+.bar-drone{background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.hero-img{width:100%;max-height:320px;object-fit:contain;border-radius:16px;border:1px solid var(--border)}
+.catia-img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.slide{animation:fadeUp .6s ease-out}
+@media print{
+  @page { size: landscape; margin: 0; }
+  html, body { width: 100%; height: 100%; margin: 0; padding: 0; zoom: 0.70; }
+  body { background: var(--bg) !important; color: var(--white) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide { 
+    height: 100vh;
+    padding: 60px 80px; 
+    page-break-after: always; 
+    page-break-inside: avoid; 
+    break-after: page;
+    break-inside: avoid;
+    animation: none !important; 
+    opacity: 1 !important; 
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide" style="justify-content:center;align-items:center;text-align:center;">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;right:-200px;background:var(--accent)"></div>
+  <div class="bg-orb" style="bottom:-200px;left:-200px;background:var(--blue)"></div>
+  <div class="pill">Pre-Seed Round — 2026</div>
+  <h1 style="font-size:4.5rem;margin-bottom:16px"><span class="accent">UFLY</span> AI</h1>
+  <p style="font-size:1.5rem;color:var(--white);font-weight:300;max-width:700px;margin:0 auto 8px">AI-Piloted Cargo Drones for Last-Mile Rural Delivery</p>
+  <div class="divider" style="margin:16px auto"></div>
+  <p style="max-width:620px;margin:0 auto 32px">Building the world's most affordable autonomous cargo drone fleet — replacing mountain trucks with AI that flies, learns, and scales.</p>
+  <img src="catia_side_view.png" alt="UFLY AI Cargo Drone — CATIA V5" class="hero-img" style="max-width:700px;margin:0 auto">
+  <p style="margin-top:28px;font-size:.88rem">Founded by <strong class="w">Unai Picot</strong> · Aerospace Engineering — Beihang University / UPM</p>
+</div>
+
+<!-- SLIDE 2: THE PROBLEM -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-100px;right:-200px;background:var(--accent)"></div>
+  <div class="sh"><h4>The Problem</h4><span class="logo">UFLY AI</span></div>
+  <div class="g2">
+    <div>
+      <h2>600 million people<br><span class="accent">can't get fast delivery</span></h2>
+      <div class="divider"></div>
+      <p style="margin-bottom:18px">Rural and mountainous regions worldwide are cut off from the logistics revolution. E-commerce is booming — but deliveries to these areas take <strong class="w">3–7 days</strong> and cost <strong class="w">40–60% more</strong> due to winding mountain roads.</p>
+      <ul>
+        <li><strong class="w">$1.2 Trillion</strong> logistics market in China alone — fastest growing globally</li>
+        <li><strong class="w">3–7 days</strong> delivery time vs. hours in urban centers</li>
+        <li><strong class="w">40–60%</strong> cost premium for mountainous terrain</li>
+        <li>Consumer demand for faster delivery is accelerating year over year</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card" style="text-align:center">
+        <h3 style="margin-bottom:20px">The Logistics Gap</h3>
+        <div style="display:flex;justify-content:center;gap:36px;margin-bottom:20px">
+          <div><div class="big green">2h</div><p style="font-size:.82rem">Urban delivery</p></div>
+          <div style="font-size:2.8rem;color:rgba(255,255,255,.12);font-weight:200;align-self:center">vs</div>
+          <div><div class="big accent">7d</div><p style="font-size:.82rem">Rural mountain delivery</p></div>
+        </div>
+        <p style="font-size:.88rem">Online shopping grows at <strong class="w">20%+ YoY</strong> — but logistics infrastructure can't keep up in rural regions. The demand exists. The supply doesn't.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: THE SOLUTION -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;left:-100px;background:var(--blue)"></div>
+  <div class="sh"><h4>The Solution</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:8px">Bypass the mountains.<br><span class="accent">Fly straight through.</span></h2>
+  <p style="max-width:600px;margin-bottom:28px">An affordable, fully autonomous fixed-wing cargo drone that delivers point-to-point — no roads, no drivers, no delays.</p>
+  <div class="g3">
+    <div class="card" style="text-align:center"><div style="font-size:2.4rem;margin-bottom:8px">🤖</div><h3 style="margin-bottom:8px">AI Autopilot</h3><p>Deep Reinforcement Learning replaces human pilots. Zero operator cost, 24/7 autonomous flight.</p></div>
+    <div class="card" style="text-align:center"><div style="font-size:2.4rem;margin-bottom:8px">🏭</div><h3 style="margin-bottom:8px">Mass Manufacture</h3><p>6061-T6 aluminum box fuselage — 50% cheaper than carbon fiber. CNC production enables rapid fleet scaling.</p></div>
+    <div class="card" style="text-align:center"><div style="font-size:2.4rem;margin-bottom:8px">🔄</div><h3 style="margin-bottom:8px">Data Flywheel</h3><p>Every flight generates real-world data. More drones = more data = better AI = competitive moat that deepens over time.</p></div>
+  </div>
+  <div class="stat-row" style="justify-content:center">
+    <div class="stat-item" style="text-align:center"><h3 class="green">6×</h3><p>Faster than trucks</p></div>
+    <div class="stat-item" style="text-align:center"><h3 class="blue">50%</h3><p>Less fuel</p></div>
+    <div class="stat-item" style="text-align:center"><h3 class="accent">60%</h3><p>Less CO₂</p></div>
+    <div class="stat-item" style="text-align:center"><h3 class="gold">&lt;$150K</h3><p>Unit cost</p></div>
+  </div>
+</div>
+
+<!-- SLIDE 4: DRONE vs TRUCK -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;left:-100px;background:var(--cyan)"></div>
+  <div class="sh"><h4>Head-to-Head Comparison</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:6px">400 kg cargo, 200 km straight-line</h2>
+  <p style="margin-bottom:28px">Mountain route comparison — Yunnan → Guizhou corridor</p>
+  <div class="g2">
+    <div class="card" style="border-color:rgba(239,68,68,.2)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="font-size:1.8rem">🚛</span><div><h3 class="accent">Delivery Truck</h3><p style="font-size:.82rem">Winding mountain roads</p></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Distance</span><span class="w">300 km (road)</span></div><div class="bar-t"><div class="bar-f bar-truck" style="width:100%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Time</span><span class="w">7+ hours</span></div><div class="bar-t"><div class="bar-f bar-truck" style="width:100%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Fuel</span><span class="w">45 L diesel</span></div><div class="bar-t"><div class="bar-f bar-truck" style="width:100%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>CO₂</span><span class="w">120 kg</span></div><div class="bar-t"><div class="bar-f bar-truck" style="width:100%"></div></div></div>
+    </div>
+    <div class="card" style="border-color:rgba(6,214,160,.2)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="font-size:1.8rem">✈️</span><div><h3 class="green">UFLY AI Drone</h3><p style="font-size:.82rem">Direct point-to-point flight</p></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Distance</span><span class="w">200 km (straight)</span></div><div class="bar-t"><div class="bar-f bar-drone" style="width:67%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Time</span><span class="w">1 hour</span></div><div class="bar-t"><div class="bar-f bar-drone" style="width:14%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>Fuel</span><span class="w">22 L aviation fuel</span></div><div class="bar-t"><div class="bar-f bar-drone" style="width:49%"></div></div></div>
+      <div class="bar-w"><div class="bar-l"><span>CO₂</span><span class="w">49 kg</span></div><div class="bar-t"><div class="bar-f bar-drone" style="width:41%"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: AIRCRAFT DESIGN + CATIA -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-100px;left:-200px;background:var(--blue)"></div>
+  <div class="sh"><h4>Aircraft Design &amp; Engineering</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:24px">Purpose-Built for <span class="accent">Mass Cargo Delivery</span></h2>
+  <div class="g2">
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+        <div class="card-s" style="text-align:center"><div class="big accent" style="font-size:2rem">1,200 kg</div><p style="font-size:.8rem">Max Takeoff Weight</p></div>
+        <div class="card-s" style="text-align:center"><div class="big green" style="font-size:2rem">400 kg</div><p style="font-size:.8rem">Payload Capacity</p></div>
+        <div class="card-s" style="text-align:center"><div class="big blue" style="font-size:2rem">773 km</div><p style="font-size:.8rem">Breguet Range</p></div>
+        <div class="card-s" style="text-align:center"><div class="big gold" style="font-size:2rem">198 km/h</div><p style="font-size:.8rem">Cruise Speed</p></div>
+      </div>
+      <div class="card" style="padding:20px">
+        <h3 style="margin-bottom:12px;font-size:1.1rem">Engineering Specifications</h3>
+        <table style="margin:0"><tr><td style="color:var(--muted);padding:6px 0">Wing Airfoil</td><td style="color:var(--white);padding:6px 0"><strong>NACA 4412</strong> (AR 11.13)</td></tr>
+        <tr><td style="color:var(--muted);padding:6px 0">Wingspan</td><td style="color:var(--white);padding:6px 0"><strong>16.0 m</strong></td></tr>
+        <tr><td style="color:var(--muted);padding:6px 0">L/D Max</td><td style="color:var(--white);padding:6px 0"><strong>12.9</strong></td></tr>
+        <tr><td style="color:var(--muted);padding:6px 0">Engine</td><td style="color:var(--white);padding:6px 0"><strong>Rotax 916 iS</strong> (160 HP turbo)</td></tr>
+        <tr><td style="color:var(--muted);padding:6px 0">Structure</td><td style="color:var(--white);padding:6px 0"><strong>6061-T6 / 7075-T6</strong> Aluminum</td></tr>
+        <tr><td style="color:var(--muted);padding:6px 0">Certification</td><td style="color:var(--white);padding:6px 0"><strong>CS-23</strong> Normal Category</td></tr></table>
+      </div>
+    </div>
+    <div>
+      <img src="catia_side_view.png" alt="UFLY AI — CATIA V5 3D Model (Side)" class="catia-img" style="margin-bottom:16px">
+      <img src="catia_top_view.png" alt="UFLY AI — CATIA V5 Planform (Top)" class="catia-img">
+      <p style="text-align:center;font-size:.78rem;margin-top:8px;color:rgba(255,255,255,.3)">Full parametric 3D model — CATIA V5</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: AI TECHNOLOGY DEEP DIVE -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;right:-200px;background:var(--blue)"></div>
+  <div class="sh"><h4>Core Technology</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:6px">The AI Pilot: <span class="accent">Deep Reinforcement Learning</span></h2>
+  <p style="margin-bottom:28px;max-width:700px">Our AI doesn't follow pre-programmed waypoints. It <em>learns to fly</em> from scratch using PPO, mastering the full 4D control space in a custom physics engine.</p>
+  <div class="g2">
+    <div>
+      <div class="card-s" style="margin-bottom:12px"><h4 style="font-size:.8rem;margin-bottom:6px">🧠 Custom Physics Engine</h4><p>We built a custom aerodynamic simulation with non-linear CL-α stall modeling for the NACA 4412 airfoil — so the AI learns <strong class="w">realistic stall recovery</strong> and flight dynamics at all attitudes.</p></div>
+      <div class="card-s" style="margin-bottom:12px"><h4 style="font-size:.8rem;margin-bottom:6px">🎮 4D Continuous Control</h4><p>Ailerons, Elevator, Rudder, Throttle — all simultaneously controlled by the neural network with action low-pass filters (α=0.18) preventing actuator hard-overs.</p></div>
+      <div class="card-s"><h4 style="font-size:.8rem;margin-bottom:6px">📡 20-Dimension Observation Space</h4><p>Virtual sensor suite: IMU gyro (100Hz), Pitot tube (20Hz), Barometric altimeter, GPS (5Hz), target direction vector. Same inputs as certified avionics.</p></div>
+    </div>
+    <div>
+      <div class="card">
+        <h3 style="margin-bottom:16px">3-Phase Curriculum Learning</h3>
+        <div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="pill" style="margin:0;background:rgba(6,214,160,.12);color:var(--cyan);border-color:rgba(6,214,160,.25)">Phase 1</span><strong class="w">Stabilization</strong></div><p style="font-size:.82rem">200K steps — Wings-level flight, attitude hold, basic survival.</p></div>
+        <div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="pill" style="margin:0;background:var(--glow);color:var(--accent2);border-color:rgba(230,57,70,.25)">Phase 2</span><strong class="w">Navigation</strong></div><p style="font-size:.82rem">22-episode skill blocks, progressive turns from 20° to 60° banked coordinated turns.</p></div>
+        <div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="pill" style="margin:0;background:rgba(245,158,11,.12);color:var(--gold);border-color:rgba(245,158,11,.25)">Phase 3</span><strong class="w">Mission Execution</strong></div><p style="font-size:.82rem">Multi-waypoint routes, wind disturbances, domain randomization for sim-to-real transfer.</p></div>
+        <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="pill" style="margin:0;background:rgba(67,97,238,.12);color:var(--blue);border-color:rgba(67,97,238,.25)">Phase 4</span><strong class="w">Full Autonomy</strong></div><p style="font-size:.82rem">Ground takeoff → cruise → waypoint navigation → approach → landing. Complete mission cycle.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: MISSION PROFILE -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;right:-100px;background:var(--cyan)"></div>
+  <div class="sh"><h4>How It Works</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:6px">Autonomous Mission Profile</h2>
+  <p style="margin-bottom:28px;max-width:600px">A typical UFLY AI cargo delivery — fully autonomous from engine start to shutdown.</p>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+    <div class="card" style="text-align:center;padding:20px"><div style="font-size:2rem;margin-bottom:6px">🛫</div><h3 style="font-size:.95rem;margin-bottom:6px">Takeoff</h3><p style="font-size:.78rem">AI manages throttle ramp-up, rotation at V_R, and initial climb to 2,400m cruise altitude.</p></div>
+    <div class="card" style="text-align:center;padding:20px"><div style="font-size:2rem;margin-bottom:6px">📈</div><h3 style="font-size:.95rem;margin-bottom:6px">Climb</h3><p style="font-size:.78rem">Constant speed climb at V_Y. AI balances pitch and throttle for optimal climb rate.</p></div>
+    <div class="card" style="text-align:center;padding:20px"><div style="font-size:2rem;margin-bottom:6px">✈️</div><h3 style="font-size:.95rem;margin-bottom:6px">Cruise</h3><p style="font-size:.78rem">198 km/h at 8,000 ft. AI navigates multi-waypoint routes with coordinated turns up to 60°.</p></div>
+    <div class="card" style="text-align:center;padding:20px"><div style="font-size:2rem;margin-bottom:6px">📉</div><h3 style="font-size:.95rem;margin-bottom:6px">Approach</h3><p style="font-size:.78rem">Descent planning, speed reduction, flap deployment. AI adapts to crosswind and gusts.</p></div>
+    <div class="card" style="text-align:center;padding:20px"><div style="font-size:2rem;margin-bottom:6px">🛬</div><h3 style="font-size:.95rem;margin-bottom:6px">Landing</h3><p style="font-size:.78rem">Precision touchdown with AI-managed flare, rollout deceleration, and engine shutdown.</p></div>
+  </div>
+  <div class="card-s" style="margin-top:24px;text-align:center;border:1px solid rgba(6,214,160,.2)">
+    <p style="font-size:.9rem"><strong class="green">Key:</strong> At every phase, the PPO neural network continuously controls all four axes (aileron, elevator, rudder, throttle) at <strong class="w">100 Hz</strong> — reacting to wind gusts, turbulence, and sensor noise in real-time. No human intervention required.</p>
+  </div>
+</div>
+
+<!-- SLIDE 8: STRUCTURAL ENGINEERING -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;left:-200px;background:var(--accent)"></div>
+  <div class="sh"><h4>Structural Engineering</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:6px">Engineered to <span class="accent">Certification Standards</span></h2>
+  <p style="margin-bottom:24px;max-width:600px">Full CS-23 Normal Category structural analysis — designed from the ground up for airworthiness.</p>
+  <div class="g2">
+    <div>
+      <div class="card" style="padding:20px;margin-bottom:16px">
+        <h3 style="font-size:1rem;margin-bottom:12px">Material Selection Matrix</h3>
+        <table style="margin:0;font-size:.8rem">
+          <tr><th>Component</th><th>Material</th><th>σ_u (MPa)</th></tr>
+          <tr><td>Spar caps & fittings</td><td class="w"><strong>Al 7075-T6</strong></td><td class="w">572</td></tr>
+          <tr><td>Skin, ribs, fuselage</td><td class="w"><strong>Al 6061-T6</strong></td><td class="w">310</td></tr>
+          <tr><td>Root attachment bolts</td><td class="w"><strong>Steel 4130</strong></td><td class="w">758</td></tr>
+          <tr><td>V2 spar caps (future)</td><td class="w"><strong>CFRP UD</strong></td><td class="w">1,500</td></tr>
+        </table>
+      </div>
+      <div class="card-s" style="border-left:3px solid var(--accent)">
+        <p style="font-size:.85rem"><strong class="w">Why Aluminum?</strong> CNC & sheet-metal processes enable <strong class="w">10× faster production</strong> than carbon fiber layup. Unit cost <strong class="green">&lt;$150K</strong> vs $300K+ for composite airframes. Perfect for fleet scaling.</p>
+      </div>
+    </div>
+    <div>
+      <div class="g2" style="gap:12px;grid-template-columns:1fr 1fr">
+        <div class="card-s" style="text-align:center"><div class="big accent" style="font-size:1.8rem">+3.8g / -1.52g</div><p style="font-size:.78rem">CS-23 Load Factors</p></div>
+        <div class="card-s" style="text-align:center"><div class="big green" style="font-size:1.8rem">98.6 kN·m</div><p style="font-size:.78rem">Ultimate Wing Bending</p></div>
+        <div class="card-s" style="text-align:center"><div class="big blue" style="font-size:1.8rem">10× Ø16mm</div><p style="font-size:.78rem">Root Bolts (MS=+0.54)</p></div>
+        <div class="card-s" style="text-align:center"><div class="big gold" style="font-size:1.8rem">36 ribs</div><p style="font-size:.78rem">Semi-monocoque wings</p></div>
+      </div>
+      <div class="card" style="margin-top:12px;padding:20px">
+        <h3 style="font-size:1rem;margin-bottom:10px">Wing Spar Design (Box Spar)</h3>
+        <ul style="font-size:.85rem">
+          <li><strong class="w">Spar caps:</strong> 7075-T6 extrusion, 70mm × 25mm (1,730 mm² area)</li>
+          <li><strong class="w">Web:</strong> 6061-T6 sheet, 3.0mm thick, riveted</li>
+          <li><strong class="w">Skin:</strong> 0.8–1.0mm 6061-T6, semi-monocoque</li>
+          <li><strong class="w">Rib spacing:</strong> 500mm (comparable to Dornier Do-228)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: BUSINESS MODEL -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;right:-100px;background:var(--blue)"></div>
+  <div class="bg-orb" style="bottom:-200px;left:-100px;background:var(--cyan)"></div>
+  <div class="sh"><h4>Business Model</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:6px">The <span class="accent">Data Flywheel</span> — Our Compounding Moat</h2>
+  <p style="margin-bottom:28px;max-width:700px">We don't just sell drones. We build an AI that gets exponentially better with every flight — then monetize the intelligence itself.</p>
+  <div class="g2">
+    <div>
+      <img src="pitch_data_flywheel.png" alt="Data Flywheel" style="width:100%;max-height:380px;object-fit:contain;border-radius:16px">
+    </div>
+    <div>
+      <div class="card-s" style="margin-bottom:12px;border-left:3px solid var(--accent)"><h3 style="font-size:.95rem;margin-bottom:4px"><span class="accent">1.</span> Build AI</h3><p style="font-size:.88rem">Train autonomous flight AI using PPO in our custom physics engine. Domain randomization ensures sim-to-real transfer.</p></div>
+      <div class="card-s" style="margin-bottom:12px;border-left:3px solid var(--blue)"><h3 style="font-size:.95rem;margin-bottom:4px"><span class="blue">2.</span> Mass Manufacture Drones</h3><p style="font-size:.88rem">Aluminum construction enables rapid CNC/sheet-metal production. Unit cost &lt;$150K vs $300K+ for carbon fiber competitors.</p></div>
+      <div class="card-s" style="margin-bottom:12px;border-left:3px solid var(--cyan)"><h3 style="font-size:.95rem;margin-bottom:4px"><span class="green">3.</span> Fly & Collect Data</h3><p style="font-size:.88rem">Every commercial flight generates terabytes of sensor, weather, terrain, and performance data. More drones = exponentially more data.</p></div>
+      <div class="card-s" style="border-left:3px solid var(--gold)"><h3 style="font-size:.95rem;margin-bottom:4px"><span class="gold">4.</span> Improve AI & Sell AI</h3><p style="font-size:.88rem">Real-world data trains next-gen models. Sell AI autonomy stack to third-party drone manufacturers — SaaS at scale.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: MARKET OPPORTUNITY -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;right:-200px;background:var(--blue)"></div>
+  <div class="sh"><h4>Market Opportunity</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:28px">A <span class="accent">Trillion-Dollar</span> Logistics Problem</h2>
+  <div class="g3">
+    <div class="card" style="text-align:center"><p style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Total Addressable Market</p><div class="big accent" style="font-size:2.8rem">$9.6T</div><p style="margin-top:6px;font-size:.82rem">Global logistics market. China alone: $1.2T growing 8% YoY.</p></div>
+    <div class="card" style="text-align:center"><p style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Serviceable Addressable Market</p><div class="big blue" style="font-size:2.8rem">$54B</div><p style="margin-top:6px;font-size:.82rem">Drone logistics + aerial cargo market by 2030. Underserved rural corridors worldwide.</p></div>
+    <div class="card" style="text-align:center"><p style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Serviceable Obtainable Market</p><div class="big green" style="font-size:2.8rem">$800M</div><p style="margin-top:6px;font-size:.82rem">50 routes × 10 drones/route. Southwest China mountain deliveries + AI licensing.</p></div>
+  </div>
+  <div class="card" style="margin-top:24px">
+    <h3 style="margin-bottom:10px;font-size:1.1rem">Why Now?</h3>
+    <div class="g3" style="gap:16px">
+      <div><p style="font-size:.88rem"><strong class="w">🔋 Component Costs</strong><br>Sensors, compute, and AI training costs have dropped 10× in 5 years.</p></div>
+      <div><p style="font-size:.88rem"><strong class="w">📜 Regulatory Clarity</strong><br>Dronamics obtained the first EU drone airline license — proving the CS-23 certification pathway works.</p></div>
+      <div><p style="font-size:.88rem"><strong class="w">📈 E-Commerce Boom</strong><br>Chinese online shopping grows 20%+ YoY, but rural delivery infrastructure hasn't kept pace.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: COMPETITIVE LANDSCAPE -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-100px;left:-100px;background:var(--blue)"></div>
+  <div class="sh"><h4>Competitive Landscape</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:20px">Our <span class="accent">Unfair Advantages</span></h2>
+  <div class="card" style="padding:20px;overflow-x:auto">
+    <table>
+      <thead><tr><th>Feature</th><th>UFLY AI</th><th>Dronamics</th><th>Zipline</th><th>Wing (Alphabet)</th></tr></thead>
+      <tbody>
+        <tr><td>Payload</td><td><strong class="w">400 kg</strong></td><td>350 kg</td><td>1.8 kg</td><td>1.5 kg</td></tr>
+        <tr><td>Range</td><td><strong class="w">773 km</strong></td><td>2,500 km</td><td>160 km</td><td>20 km</td></tr>
+        <tr><td>Unit Cost</td><td><strong class="green">&lt;$150K (Aluminum)</strong></td><td>$300K+ (Carbon Fiber)</td><td>~$3K</td><td>N/A</td></tr>
+        <tr><td>Full AI Autonomy</td><td><span class="check">✓ DRL (No remote pilot)</span></td><td><span class="cross">✗ Human remote pilot</span></td><td><span class="check">✓ Autonomous</span></td><td><span class="check">✓ Autonomous</span></td></tr>
+        <tr><td>Data Flywheel</td><td><span class="check">✓ Core strategy</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="check">✓ Google data</span></td></tr>
+        <tr><td>Mass Manufacturing</td><td><span class="check">✓ CNC aluminum</span></td><td>Carbon fiber layup</td><td>Injection mold</td><td>N/A</td></tr>
+        <tr><td>Target Market</td><td><strong class="w">Heavy rural cargo</strong></td><td>B2B cargo</td><td>Medical supplies</td><td>Consumer last-mile</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-s" style="margin-top:16px;border-left:3px solid var(--accent)">
+    <p style="font-size:.92rem"><strong class="w">Key differentiator:</strong> We combine heavy cargo capacity (400 kg) with full AI autonomy AND aluminum manufacturing economics. No competitor offers all three.</p>
+  </div>
+</div>
+
+<!-- SLIDE 12: TRACTION & PROGRESS -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;right:-200px;background:var(--cyan)"></div>
+  <div class="sh"><h4>Traction & Progress</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:28px">What We've <span class="green">Built So Far</span></h2>
+  <div class="g2">
+    <div class="timeline">
+      <div class="tl-item done"><h3>Complete Aerodynamic Design ✓</h3><p>Full drag polar analysis, NACA 4412 characterization, Breguet range (773 km), V-n flight envelope.</p></div>
+      <div class="tl-item done"><h3>3D Parametric Airframe (CATIA V5) ✓</h3><p>Full aircraft modeled — 15m³ cargo box-fuselage, trapezoidal wings, T-tail empennage.</p></div>
+      <div class="tl-item done"><h3>Custom Physics Engine ✓</h3><p>Non-linear CL-α stall model, sigmoidal stall behavior. Gymnasium-compatible environment.</p></div>
+      <div class="tl-item done"><h3>AI Autopilot — Phase 1 & 2 Complete ✓</h3><p>PPO agent trained 600K+ steps. Stable flight, coordinated turns up to 60°.</p></div>
+      <div class="tl-item now"><h3>AI Autopilot — Phase 3 & 4 In Progress ◎</h3><p>Multi-waypoint missions + full takeoff-to-landing autonomy. Curriculum training active.</p></div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <h3 style="margin-bottom:14px;font-size:1.1rem">Key Metrics</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="card-s" style="text-align:center"><div class="big green" style="font-size:1.8rem">600K+</div><p style="font-size:.78rem">Training Steps</p></div>
+          <div class="card-s" style="text-align:center"><div class="big accent" style="font-size:1.8rem">0.33m</div><p style="font-size:.78rem">Cross-Track Error</p></div>
+          <div class="card-s" style="text-align:center"><div class="big blue" style="font-size:1.8rem">20-Dim</div><p style="font-size:.78rem">MDP State Space</p></div>
+          <div class="card-s" style="text-align:center"><div class="big gold" style="font-size:1.8rem">4D</div><p style="font-size:.78rem">Continuous Actions</p></div>
+        </div>
+      </div>
+      <div class="card-s" style="border-left:3px solid var(--cyan)">
+        <p style="font-size:.88rem"><strong class="w">Software stack built:</strong> Custom aero engine, PPO training pipeline, 3D visualization, mission supervisor, CATIA automation — all production Python.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13: ROADMAP -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;left:-100px;background:var(--blue)"></div>
+  <div class="sh"><h4>Product Roadmap</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:28px">From <span class="accent">Simulation to Fleet</span></h2>
+  <div class="g4">
+    <div class="card" style="padding:20px"><span class="pill" style="background:rgba(6,214,160,.12);color:var(--cyan);border-color:rgba(6,214,160,.25)">2026 H1</span><h3 style="margin-top:6px;font-size:1rem">Phase A — Digital Twin</h3><div class="divider"></div><ul style="font-size:.82rem"><li>Complete Phase 3+4 AI training</li><li>Full CS-23 structural analysis</li><li>Thesis defense (Beihang)</li><li>Scaled 3D-printed prototype</li></ul></div>
+    <div class="card" style="padding:20px"><span class="pill" style="background:rgba(67,97,238,.12);color:var(--blue);border-color:rgba(67,97,238,.25)">2026 H2</span><h3 style="margin-top:6px;font-size:1rem">Phase B — Subscale UAV</h3><div class="divider"></div><ul style="font-size:.82rem"><li>Build 1:4 scale flying prototype</li><li>Sim-to-real AI transfer testing</li><li>Hardware-in-the-Loop validation</li><li>First autonomous outdoor flight</li></ul></div>
+    <div class="card" style="padding:20px"><span class="pill" style="background:rgba(245,158,11,.12);color:var(--gold);border-color:rgba(245,158,11,.25)">2027</span><h3 style="margin-top:6px;font-size:1rem">Phase C — Full-Scale</h3><div class="divider"></div><ul style="font-size:.82rem"><li>Full-scale aluminum prototype</li><li>Experimental flight permits</li><li>CNC manufacturing line setup</li><li>First cargo delivery test</li></ul></div>
+    <div class="card" style="padding:20px"><span class="pill" style="background:rgba(6,214,160,.12);color:var(--cyan);border-color:rgba(6,214,160,.25)">2028+</span><h3 style="margin-top:6px;font-size:1rem">Phase D — Fleet & Scale</h3><div class="divider"></div><ul style="font-size:.82rem"><li>Certification pathway (CAAC)</li><li>V2: Wet wings → 3,000 km range</li><li>10-drone pilot fleet deployment</li><li>AI licensing to 3rd-party OEMs</li></ul></div>
+  </div>
+  <div class="card-s" style="margin-top:20px;text-align:center;border:1px solid rgba(67,97,238,.2)">
+    <p style="font-size:.9rem"><strong class="accent">V2 Roadmap:</strong> Wet wings (integral fuel tanks) add 200 kg fuel, pushing range beyond <strong class="w">3,000 km</strong> — outperforming every competitor in the heavy cargo segment.</p>
+  </div>
+</div>
+
+<!-- SLIDE 14: TEAM -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-200px;left:-200px;background:var(--blue)"></div>
+  <div class="sh"><h4>Team</h4><span class="logo">UFLY AI</span></div>
+  <h2 style="margin-bottom:28px">The Founder</h2>
+  <div class="g2">
+    <div class="card" style="text-align:center;padding:36px">
+      <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--blue));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:#fff;font-weight:900">UP</div>
+      <h3 style="font-size:1.4rem">Unai Picot</h3>
+      <p style="color:var(--accent2);margin-bottom:14px;font-weight:600">Founder & CEO</p>
+      <div class="divider" style="margin:14px auto"></div>
+      <p style="text-align:left;font-size:.88rem">Aerospace Engineering student at <strong class="w">Beihang University</strong> (Beijing) and <strong class="w">Universidad Politécnica de Madrid (UPM)</strong>. Full-stack aerospace engineer with end-to-end capability from aerodynamic design to AI implementation.</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:14px;font-size:1.1rem">Technical Capabilities</h3>
+      <div class="card-s" style="margin-bottom:10px"><p style="font-size:.88rem"><strong class="w">✈️ Aerospace Design</strong> — CATIA V5, XFLR5, OpenVSP, ANSYS, NASTRAN</p></div>
+      <div class="card-s" style="margin-bottom:10px"><p style="font-size:.88rem"><strong class="w">🤖 AI / Machine Learning</strong> — Python, PPO, Stable-Baselines3, Gymnasium, PyTorch</p></div>
+      <div class="card-s" style="margin-bottom:10px"><p style="font-size:.88rem"><strong class="w">📐 Structural Analysis</strong> — FEA (ANSYS/NASTRAN), CS-23 compliance, V-n diagrams</p></div>
+      <div class="card-s" style="margin-bottom:10px"><p style="font-size:.88rem"><strong class="w">🔧 Manufacturing</strong> — CNC machining, sheet metal, 3D printing (prototype-ready STL files)</p></div>
+      <div class="card-s" style="margin-bottom:16px"><p style="font-size:.88rem"><strong class="w">🌏 Multilingual</strong> — Based in Beijing, native Spanish + English, studying Mandarin. Deep China market understanding.</p></div>
+      <div class="card-s" style="border-left:3px solid var(--gold)">
+        <p style="font-size:.88rem"><strong class="gold">Looking for:</strong> Co-founder with business/operations expertise, and early-stage engineers in embedded systems and flight software.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 15: THE ASK -->
+<div class="slide">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="bottom:-200px;right:-200px;background:var(--blue)"></div>
+  <div class="bg-orb" style="top:-200px;left:-200px;background:var(--accent)"></div>
+  <div class="sh"><h4>The Ask</h4><span class="logo">UFLY AI</span></div>
+  <div style="text-align:center;margin-bottom:32px">
+    <h2>Raising <span class="accent">$250K</span> Pre-Seed</h2>
+    <p>To take UFLY AI from simulation to first outdoor autonomous flight</p>
+  </div>
+  <div class="fund-bar">
+    <div style="width:35%;background:linear-gradient(90deg,#3b82f6,#2563eb)">35%</div>
+    <div style="width:25%;background:linear-gradient(90deg,#06d6a0,#059669)">25%</div>
+    <div style="width:20%;background:linear-gradient(90deg,#06b6d4,#0891b2)">20%</div>
+    <div style="width:12%;background:linear-gradient(90deg,#f59e0b,#d97706)">12%</div>
+    <div style="width:8%;background:linear-gradient(90deg,#8b5cf6,#7c3aed)">8%</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:32px">
+    <div style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)"><div style="width:10px;height:10px;border-radius:3px;background:#3b82f6"></div>Subscale Prototype (35%)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)"><div style="width:10px;height:10px;border-radius:3px;background:#06d6a0"></div>AI & Compute (25%)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)"><div style="width:10px;height:10px;border-radius:3px;background:#06b6d4"></div>Avionics & Sensors (20%)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)"><div style="width:10px;height:10px;border-radius:3px;background:#f59e0b"></div>Flight Testing (12%)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)"><div style="width:10px;height:10px;border-radius:3px;background:#8b5cf6"></div>Operations (8%)</div>
+  </div>
+  <div class="g3">
+    <div class="card" style="text-align:center"><h3 style="margin-bottom:6px">🎯 Milestone 1</h3><p style="font-size:.88rem">Build & fly 1:4 scale prototype with autonomous AI control — proving sim-to-real transfer</p><p style="margin-top:6px;font-size:.82rem;color:var(--accent2)"><strong>Q4 2026</strong></p></div>
+    <div class="card" style="text-align:center"><h3 style="margin-bottom:6px">🎯 Milestone 2</h3><p style="font-size:.88rem">Complete 100+ autonomous test flights, collect first real-world training data batch</p><p style="margin-top:6px;font-size:.82rem;color:var(--accent2)"><strong>Q1 2027</strong></p></div>
+    <div class="card" style="text-align:center"><h3 style="margin-bottom:6px">🎯 Milestone 3</h3><p style="font-size:.88rem">Begin full-scale aluminum prototype construction with manufacturing partner</p><p style="margin-top:6px;font-size:.82rem;color:var(--accent2)"><strong>Q2 2027</strong></p></div>
+  </div>
+</div>
+
+<!-- SLIDE 16: CONTACT / CLOSING -->
+<div class="slide" style="justify-content:center;align-items:center;text-align:center">
+  <div class="bar-top"></div>
+  <div class="bg-orb" style="top:-100px;right:-100px;background:var(--blue)"></div>
+  <div class="bg-orb" style="bottom:-100px;left:-100px;background:var(--accent)"></div>
+  <h1 style="font-size:3.2rem;margin-bottom:14px">Let's <span class="accent">Build the Future</span><br>of Cargo Delivery</h1>
+  <div class="divider" style="margin:14px auto 20px"></div>
+  <p style="font-size:1.15rem;color:var(--white);max-width:600px;margin:0 auto 36px">AI-piloted cargo drones. Mass-manufactured. Getting smarter with every flight.</p>
+  <div class="card" style="display:inline-block;text-align:left;min-width:440px">
+    <h3 style="margin-bottom:14px;text-align:center;font-size:1.1rem">Contact</h3>
+    <table style="margin:0;width:100%">
+      <tr><td style="padding:7px 14px;color:var(--muted)">Founder</td><td style="padding:7px 14px;color:var(--white)"><strong>Unai Picot</strong></td></tr>
+      <tr><td style="padding:7px 14px;color:var(--muted)">Email</td><td style="padding:7px 14px;color:var(--accent2);word-break:break-all"><strong>unaipicot@gmail.com</strong></td></tr>
+      <tr><td style="padding:7px 14px;color:var(--muted)">LinkedIn</td><td style="padding:7px 14px"><a href="https://linkedin.com/in/unai-picot-8383a624b" style="color:var(--accent2);text-decoration:none"><strong>linkedin.com/in/unai-picot</strong></a></td></tr>
+      <tr><td style="padding:7px 14px;color:var(--muted)">Phone (China)</td><td style="padding:7px 14px;color:var(--white)"><strong>+86 18601933209</strong></td></tr>
+      <tr><td style="padding:7px 14px;color:var(--muted)">Phone (Spain)</td><td style="padding:7px 14px;color:var(--white)"><strong>+34 672242834</strong></td></tr>
+      <tr><td style="padding:7px 14px;color:var(--muted)">Location</td><td style="padding:7px 14px;color:var(--white)">Beijing, China</td></tr>
+    </table>
+  </div>
+  <p style="margin-top:36px;font-size:.85rem;color:var(--muted)">UFLY AI © 2026 — Confidential</p>
+</div>
+
+</body>
+</html>
