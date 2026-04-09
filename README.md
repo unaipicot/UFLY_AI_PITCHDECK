@@ -62,3 +62,5 @@ If you are a deep-tech investor, an embedded systems engineer, or a logistics pa
 **Connect with the Founder:** Unai Picot 
 📧 unaipicot@gmail.com
 💼 [LinkedIn](https://linkedin.com/in/unai-picot-8383a624b)
+Phone Number: +34 672242834   (Spain)
+              +86 18601933209 (China)
